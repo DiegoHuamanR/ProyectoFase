@@ -24,6 +24,11 @@ public class Test {
    	 	Pastillas.length();
    	 	Pastillas.clear();
         System.out.println(Pastillas);
+        
+        Verificacion receta = new Verificacion();
+		
+		System.out.println("La receta es: "+ receta.veriCode(2345));
+		System.out.println("La receta es: "+ receta.veriCode(3456));
 
 	}
 
