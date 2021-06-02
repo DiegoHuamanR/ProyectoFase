@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
+import java.util.Iterator;
 
 public class Test {
 
-	public static void main(String[] args) {
-		List<Pastillas> Pastillas = new List<>();
+	public static void main(String[] args) throws IOException {
+		/*List<Pastillas> Pastillas = new List<>();
 		Pastillas a = new Pastillas(45672956,"Paracetamol","S./3.20",10);
    	 	Pastillas b = new Pastillas(34357891,"Omeprazol","S./2.20",15);
    	 	Pastillas c = new Pastillas(65431183,"Ramipril","S./5.20",20);
@@ -29,7 +33,122 @@ public class Test {
 		
 		System.out.println("La receta es: "+ receta.veriCode(2345));
 		System.out.println("La receta es: "+ receta.veriCode(3456));
+		*/
+		int opcionEligeUsuario = 0;
+        List <Usuario> listaDePasajeros = new ArrayList<Usuario> ();
+        Dialogo opcionesUsuario = new Dialogo();
+        Dialogo mensajeVent = new Dialogo();
+
+        while (opcionEligeUsuario != 5 ) {
+
+            opcionEligeUsuario = opcionesUsuario.obtenerOpcionMenu();
+
+            if (opcionEligeUsuario == 1) {
+
+                Usuario tmpPasajero = new Usuario();
+                tmpPasajero.SetIdentificacion(opcionesUsuario.obtenerIdentificacionPasajero());
+                tmpPasajero.SetNombre(opcionesUsuario.obtenerNombrePasajero());
+                tmpPasajero.SetApellidos(opcionesUsuario.obtenerApellidosPasajero());
+                tmpPasajero.SetEmail(opcionesUsuario.obtenerEmailPasajero());
+                tmpPasajero.SetCelular(opcionesUsuario.obtenerCelularPasajero());
+                tmpPasajero.SetEdad(opcionesUsuario.obtenerEdadPasajero());
+                //Terminamos guardando el objeto pasajero
+                listaDePasajeros.add(tmpPasajero);
+            }
+
+            if (opcionEligeUsuario == 2) {
+                String identPasajeroBuscado = opcionesUsuario.obtenerIdentificacionPasajero();
+                boolean pasajeroEncontrado = false;
+
+                Iterator<Usuario> it = listaDePasajeros.iterator();
+                Usuario tmpAnalizando;
+
+                while ( it.hasNext() ) {          
+
+                    tmpAnalizando = it.next();              
+
+                    if (tmpAnalizando.getIdentificacion().equals(identPasajeroBuscado) ) {
+                        pasajeroEncontrado = true;
+                        String mensaje = tmpAnalizando.getStringPasajero();
+                        mensaje = mensaje + "\n\n\n";
+                        mensaje = mensaje + "A continuación introduzca nuevos datos para este usuario";
+
+                        mensajeVent.mostrarMensaje(mensaje);
+
+                        mensajeVent.mostrarMensaje("La identificación no puede ser modificada, indique resto de datos");
+                        tmpAnalizando.SetNombre(opcionesUsuario.obtenerNombrePasajero());
+                        tmpAnalizando.SetApellidos(opcionesUsuario.obtenerApellidosPasajero());
+                        tmpAnalizando.SetEmail(opcionesUsuario.obtenerEmailPasajero());
+                        tmpAnalizando.SetCelular(opcionesUsuario.obtenerCelularPasajero());
+                        tmpAnalizando.SetEdad(opcionesUsuario.obtenerEdadPasajero());
+
+                        mensaje = tmpAnalizando.getStringPasajero();
+                        mensajeVent.mostrarMensaje(mensaje);
+
+                    } else { }   
+
+                } 
+
+                if (pasajeroEncontrado == false) {
+                    mensajeVent.mostrarMensaje("No se encontró el usuario con esa identificación");
+                }
+            } 
+
+            if (opcionEligeUsuario == 3) {
+
+                String listado = "";
+
+                Iterator<Usuario> it2 = listaDePasajeros.iterator();
+                Usuario tmpAnalizando;
+
+                while ( it2.hasNext() ) {          
+                    tmpAnalizando = it2.next();            
+                    listado = listado + tmpAnalizando.getStringPasajero();
+                    listado = listado + "\n\n\n";
+                }
+
+                mensajeVent.mostrarMensaje(listado);
+
+            } 
+
+           
+            if (opcionEligeUsuario == 4) {
+                String identPasajeroBuscado = opcionesUsuario.obtenerIdentificacionPasajero();
+                boolean pasajeroEncontrado = false;
+
+                Iterator<Usuario> it = listaDePasajeros.iterator();
+                Usuario tmpAnalizando;
+
+                while ( it.hasNext() && pasajeroEncontrado==false ) {  
+
+                    tmpAnalizando = it.next();               
+
+                    if (tmpAnalizando.getIdentificacion().equals(identPasajeroBuscado) ) {
+                        pasajeroEncontrado = true;
+                        String mensaje = tmpAnalizando.getStringPasajero();
+                        mensaje = mensaje + "\n\n\n";
+                        mensaje = mensaje + "Se procede al borrado de datos de este usario\n\n";
+
+                        mensajeVent.mostrarMensaje(mensaje);
+
+                       
+                        listaDePasajeros.remove(tmpAnalizando);
+                        pasajeroEncontrado=true;
+
+                    } else { }    
+
+                } 
+
+                if (pasajeroEncontrado == false) {
+                    mensajeVent.mostrarMensaje("No se encontró el usuario con esa identificación");
+                }
+            } 
+
+        }
+
+        opcionesUsuario.cerrarPrograma();
+
+    }
 
 	}
 
-}
