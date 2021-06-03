@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+
+import vistas.VendedorInt;
+
 import java.io.*;
 import java.util.Iterator;
 
@@ -146,9 +149,33 @@ public class Test {
 
         }
 
-        opcionesUsuario.cerrarPrograma();
+	       int opcionFactura = 0;
+	        Factura opcionesF = new Factura();
+	        Factura mensajeF = new Factura();
+	        while (opcionFactura != 2 ) {
+	        	opcionFactura = opcionesF.obtenerFactura();
+	        	if (opcionFactura == 1) {
 
-    }
+	                 String listado = "";
+
+	                 Iterator<Usuario> it2 = listaDePasajeros.iterator();
+	                 Usuario tmpAnalizando;
+
+	                 while ( it2.hasNext() ) {          
+	                     tmpAnalizando = it2.next();            
+	                     listado = listado + tmpAnalizando.getStringPasajero();
+	                     listado = listado + "\n\n\n";
+	                 }
+
+	                 mensajeF.mostrarMensaje(listado);
+
+	             } 
+	 
+	        	}
+	        opcionesUsuario.cerrarPrograma();
+
+	    }
+    
 
 	}
 
