@@ -27,6 +27,7 @@ public class FrmPersonas extends JFrame implements ActionListener {
 	private JTextField textCodigo;
 	private JTextField textdni;
 	private JButton btnCerrar;
+	private JButton btnLimpiar;
 
 	/**
 	 * Launch the application.
@@ -121,15 +122,23 @@ public class FrmPersonas extends JFrame implements ActionListener {
 				
 			}
 		});
-		btnGrabar.setBounds(439, 92, 89, 23);
+		btnGrabar.setBounds(423, 51, 105, 23);
 		contentPane.add(btnGrabar);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(439, 164, 89, 23);
+		btnCerrar.setBounds(423, 164, 105, 23);
 		contentPane.add(btnCerrar);
+		
+		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.addActionListener(this);
+		btnLimpiar.setBounds(423, 103, 105, 23);
+		contentPane.add(btnLimpiar);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnLimpiar) {
+			handle_btnNewButton_actionPerformed(e);
+		}
 		if (e.getSource() == btnCerrar) {
 			handle_btnCerrar_actionPerformed(e);
 		}
@@ -138,5 +147,13 @@ public class FrmPersonas extends JFrame implements ActionListener {
 		VendedorInt vi=new VendedorInt();
 		vi.setVisible(true);
 		setVisible(false);
+	}
+	protected void handle_btnNewButton_actionPerformed(ActionEvent e) {
+		textxtNombre.setText("");
+		textApellido.setText("");
+		textCodigo.setText("");
+		textdni.setText("");
+		
+		
 	}
 }

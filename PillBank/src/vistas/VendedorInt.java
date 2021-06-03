@@ -23,6 +23,7 @@ public class VendedorInt extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JButton btnPastillas;
 	private JButton btnIntRegistro;
+	private JButton btnExit;
 
 	/**
 	 * Launch the application.
@@ -68,7 +69,8 @@ public class VendedorInt extends JFrame implements ActionListener {
 		btnPastillas.setBounds(444, 199, 89, 23);
 		contentPane.add(btnPastillas);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
+		btnExit.addActionListener(this);
 		btnExit.setBounds(444, 251, 89, 23);
 		contentPane.add(btnExit);
 		
@@ -80,6 +82,9 @@ public class VendedorInt extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnExit) {
+			handle_btnExit_actionPerformed(e);
+		}
 		if (e.getSource() == btnIntRegistro) {
 			handle_btnIntRegistro_actionPerformed(e);
 		}
@@ -88,12 +93,18 @@ public class VendedorInt extends JFrame implements ActionListener {
 		}
 	}
 	protected void handle_btnNewButton_1_actionPerformed(ActionEvent e) {
-		
+		JOptionPane.showMessageDialog(null,"Bienvenido, usted ya puede gestionar las pastillas","REGISTRO",JOptionPane.INFORMATION_MESSAGE);
+		PastillasInt p1=new PastillasInt();
+		p1.setVisible(true);
+		this.setVisible(false);
 	}
 	protected void handle_btnIntRegistro_actionPerformed(ActionEvent e) {
 		JOptionPane.showMessageDialog(null,"Bienvenido, el codigo de nuestro hospital para poder acceder a las opciones de las pastillas es 1568","REGISTRO",JOptionPane.INFORMATION_MESSAGE);
 		FrmPersonas p=new FrmPersonas();
 		p.setVisible(true);
+		this.setVisible(false);
+	}
+	protected void handle_btnExit_actionPerformed(ActionEvent e) {
 		this.setVisible(false);
 	}
 }

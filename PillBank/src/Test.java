@@ -37,6 +37,8 @@ public class Test {
 		System.out.println("La receta es: "+ receta.veriCode(2345));
 		System.out.println("La receta es: "+ receta.veriCode(3456));
 		*/
+		VendedorInt p= new VendedorInt();
+		p.setVisible(true);
 		int opcionEligeUsuario = 0;
         List <Usuario> listaDePasajeros = new ArrayList<Usuario> ();
         Dialogo opcionesUsuario = new Dialogo();
@@ -173,8 +175,11 @@ public class Test {
 	 
 	        	}
 	        opcionesUsuario.cerrarPrograma();
+	        
 
 	    }
+		
+	
     
 
 	}

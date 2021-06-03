@@ -1,3 +1,4 @@
+package vistas;
 public class node<T> {
 
     T data;
