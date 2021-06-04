@@ -23,7 +23,6 @@ public class InterfazUsuario extends JFrame {
 	
 
 	private JPanel contentPane;
-	
 
 	/**
 	 * Launch the application.
@@ -71,7 +70,7 @@ public class InterfazUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 				int opcionEligeUsuario = 0;
-		        List <Usuario> listausuarios = new ArrayList<Usuario> ();
+				List <Usuario> listausuarios = new ArrayList<Usuario> ();
 		        Dialogo opcionesUsuario = new Dialogo();
 		        Dialogo mensajeVent = new Dialogo();
 

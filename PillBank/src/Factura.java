@@ -24,5 +24,6 @@ public class Factura{
         JFrame frame = new JFrame("Final del programa");
         JOptionPane.showMessageDialog(frame, "Gracias por usar este programa. Fin");
         System.exit(0);
+        
     }
 }

@@ -18,7 +18,6 @@ public class Dialogo {
         dialogo += "Escoja Opción:\n";
         return Integer.parseInt(JOptionPane.showInputDialog(dialogo));
     }
-
     public String obtenerIdentificacionusuario() throws IOException {
         dialogo = "Introduzca Identificacion de usuario\n";
         return JOptionPane.showInputDialog(dialogo);
