@@ -1,5 +1,3 @@
-package vistas;
-
 public class List<T> {
 
 	node<T> head;

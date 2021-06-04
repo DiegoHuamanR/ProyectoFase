@@ -1,5 +1,3 @@
-package vistas;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -108,3 +106,4 @@ public class VendedorInt extends JFrame implements ActionListener {
 		this.setVisible(false);
 	}
 }
+
