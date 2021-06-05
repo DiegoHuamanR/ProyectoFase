@@ -14,7 +14,8 @@ public class Dialogo {
         dialogo += "2.  Modificar usuario\n";
         dialogo += "3.  Listar los usuarios\n";
         dialogo += "4.  Eliminar usuario\n";
-        dialogo += "5.  Salir\n";
+        dialogo += "5.  Visualizar Factora\n";
+        dialogo += "6.  Salir\\n";
         dialogo += "Escoja Opción:\n";
         return Integer.parseInt(JOptionPane.showInputDialog(dialogo));
     }
@@ -51,6 +52,11 @@ public class Dialogo {
     public void mostrarMensaje (String mensaje) {
         JFrame frame = new JFrame("Mensaje");
         JOptionPane.showMessageDialog(frame, mensaje);
+    }
+    
+    public String obtenerCodigoReceta() throws IOException {
+        dialogo = "Introducir codigo de receta\n";
+        return JOptionPane.showInputDialog(dialogo);
     }
    
     public void cerrarPrograma () {

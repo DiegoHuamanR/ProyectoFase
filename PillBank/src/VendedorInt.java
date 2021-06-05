@@ -216,6 +216,8 @@ public class VendedorInt extends JFrame implements ActionListener {
 		this.setVisible(false);
 	}
 	protected void handle_btnExit_actionPerformed(ActionEvent e) {
+		Menuprincipal m=new Menuprincipal();
+		m.setVisible(true);
 		this.setVisible(false);
 	}
 }

@@ -7,10 +7,8 @@ import java.util.Scanner;
 public class Test {
 
 	public static void main(String[] args) {
-		VendedorInt v=new VendedorInt();
-		v.setVisible(true);
-		InterfazUsuario u=new InterfazUsuario();
-		u.setVisible(true);
+		Menuprincipal m=new Menuprincipal();
+		m.setVisible(true);
 		Verificador<String> r = new Verificador<String>();
 		
 		try {

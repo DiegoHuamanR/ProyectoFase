@@ -74,10 +74,9 @@ public class InterfazUsuario extends JFrame {
 		        Dialogo opcionesUsuario = new Dialogo();
 		        Dialogo mensajeVent = new Dialogo();
 
-		        while (opcionEligeUsuario != 5 ) {
+		        while (opcionEligeUsuario != 6 ) {
 
 						opcionEligeUsuario = opcionesUsuario.obtenerOpcionMenu();
-					
 
 		            if (opcionEligeUsuario == 1) {
 
@@ -99,18 +98,14 @@ public class InterfazUsuario extends JFrame {
 		                Usuario tmpAnalizando;
 
 		                while ( it.hasNext() ) {          
-
 		                    tmpAnalizando = it.next();              
-
 		                    if (tmpAnalizando.getIdentificacion().equals(identusuaBuscado) ) {
 		                        pasajeroEncontrado = true;
 		                        String mensaje = tmpAnalizando.getStringusuario();
 		                        mensaje = mensaje + "\n\n\n";
 		                        mensaje = mensaje + "A continuación introduzca nuevos datos para este usuario";
-
 		                        mensajeVent.mostrarMensaje(mensaje);
-
-		                        mensajeVent.mostrarMensaje("La identificación no puede ser modificada, indique resto de datos");
+		                       // mensajeVent.mostrarMensaje("La identificación no puede ser modificada, indique resto de datos");
 		                        tmpAnalizando.SetNombre(opcionesUsuario.obtenerNombreusuario());
 		                        tmpAnalizando.SetApellidos(opcionesUsuario.obtenerApellidosusuario());
 		                        tmpAnalizando.SetEmail(opcionesUsuario.obtenerEmailusuario());
@@ -177,8 +172,50 @@ public class InterfazUsuario extends JFrame {
 		                    mensajeVent.mostrarMensaje("No se encontró el usuario con esa identificación");
 		                }
 		            } 
+		         
+		            if (opcionEligeUsuario==5) {
+		            	Verificador<String> r = new Verificador<String>();
+		        		
+		        		
+		            	String identusuaBuscado = opcionesUsuario.obtenerIdentificacionusuario();
+		                boolean pasajeroEncontrado = false;
 
-		        }
+		                Iterator<Usuario> it = listausuarios.iterator();
+		                Usuario tmpAnalizando;
+
+		                while ( it.hasNext() ) {          
+		                    tmpAnalizando = it.next();              
+		                    if (tmpAnalizando.getIdentificacion().equals(identusuaBuscado) ) {
+		                        pasajeroEncontrado = true;
+		                        String mensaje = "";
+		                        
+		                        try {
+				        			//Las recetas serán predefinidas
+				        			r.insert("1234");
+				        			r.insert("[Aspirina] cada 12 horas. 50 soles");
+				        			r.insert("1235");
+				        			r.insert("[Paracetamol] cada 6 horas.");
+				        			r.insert("1236");
+				        			r.insert("[Omeprazol] depués de cada almuerzo.");
+				        			mensaje = tmpAnalizando.getNA();
+			                        
+				        			mensajeVent.mostrarMensaje(r.search(opcionesUsuario.obtenerCodigoReceta()));
+				        			mensajeVent.mostrarMensaje(mensaje);
+				        			
+				        			}
+				        			catch (Exception x) {
+				        				System.out.println(x.getLocalizedMessage());
+				        			}
+		                    } else { }   
+
+		                } 
+		                if (pasajeroEncontrado == false) {
+		                    mensajeVent.mostrarMensaje("No se encontró el usuario con esa identificación");
+		                }
+		                
+		            	//--------------------------------------------  
+
+		        }}
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

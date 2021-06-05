@@ -5,6 +5,7 @@ public class Usuario {
     private String apellidos;
     private String email;
     private String celular;
+    private String CodigoR;
     private int edad;
 
     /**
@@ -18,6 +19,7 @@ public class Usuario {
         email = "desconocido";
         celular = "desconocido";
         edad = 0;
+        CodigoR= "desconocido";
     }
 
     //Metodos Modificadores//
@@ -27,6 +29,7 @@ public class Usuario {
     public void SetEmail(String email) { this.email = email; }
     public void SetCelular(String celular) {this.celular = celular; }
     public void SetEdad(int edad) {this.edad = edad; }
+    public void SetRec(String CodigoR) {this.CodigoR = CodigoR; }
 
     // Metodos Analizador//
     public String getIdentificacion() {return identificacion; }
@@ -34,6 +37,7 @@ public class Usuario {
     public String getApellidos() { return apellidos; }
     public String getEmail() {return email; }
     public String getCelular() { return celular;}
+    public String getRec() {return CodigoR;}
     public int getEdad() {return edad;}
     public String getStringusuario () {
         String mensaje = "Información actual de usuario: \n";
@@ -44,6 +48,12 @@ public class Usuario {
         mensaje = mensaje + "Celular: " + this.getCelular() + "\n";
         mensaje = mensaje + "Edad: " + this.getEdad() + "\n";
         mensaje = mensaje + "\n\n\n";
+        return mensaje;
+    }
+    public String getNA() {
+    	String mensaje = "Información actual de usuario: \n";
+    	mensaje = mensaje + "Nombre: " + this.getNombre()+"\n";
+        mensaje = mensaje + "Apellidos: " + this.getApellidos() + "\n";
         return mensaje;
     }
 }
