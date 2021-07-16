@@ -1,15 +1,19 @@
 
-
 public class Vendedor {
 	String Nombre;
 	String Apellido;
-	int codigo=1568;
+	String codigo;
 	int dni;
-	Vendedor(String nombre, String apellido, int cod, int id){
+	Vendedor(String nombre, String apellido, String cod, int id){
 		this.Nombre=nombre;
 		this.Apellido=apellido;
 		this.codigo=cod;
 		this.dni=id;
+	}
+	
+	Vendedor(String cod, int dni){
+		this.codigo=cod;
+		this.dni=dni;
 	}
 	public String getNombre() {
 		return Nombre;
@@ -23,10 +27,10 @@ public class Vendedor {
 	public void setApellido(String apellido) {
 		Apellido = apellido;
 	}
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public int getDni() {
