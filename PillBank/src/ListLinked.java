@@ -32,7 +32,7 @@ public class ListLinked <T> implements TDAList<T> {
         }
         while (current != null)
         {
-            if (ingreso.getCodigo().equals(x.getCodigo()))
+            if (ingreso.getDni()==x.getDni())
                 return true;
             current = current.getNext();
         }
