@@ -47,6 +47,20 @@ public class Encadenamiento<T> {
 	                return entry.value;
 	        }
 	    }
+	   
+	   public int mostrardato(int value) 
+	    {
+		   	
+
+	        if (HashTable[value] == null)
+	            return -1;
+	        else 
+	        {
+	        	 HashTable[value].getData();
+	        }
+			return 0;
+			
+	    }
 
 	   
 	   public void insert(String data, int value) 
