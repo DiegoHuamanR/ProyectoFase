@@ -67,6 +67,36 @@ public class Encadenamiento<T> {
 	        tamano++;
 	    }
 	
+	   
+	   public void insert2(T data, int value) 
+	    {
+	        int hash = (myhash2( data ) % tamanotabla);
+	        if (HashTable[hash] == null)
+	            HashTable[hash] = new Node(data, value);
+	        else 
+	        {
+	            Node entry = HashTable[hash];
+	            while (entry.getNext() != null && !entry.getData().equals(data))
+	            	entry = entry.getNext();
+	            if (entry.getData().equals(data))
+	                entry.value = value;
+	            else
+	            	entry.setNext(new Node(data, value));
+	        }
+	        tamano++;
+	    }
+	   private int myhash2(T x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= tamanotabla;
+	        if (hashVal < 0)
+	            hashVal += tamanotabla;
+	        return hashVal;
+	    }
+	   
+	   
+
 	   public void remove(String data) 
 	    {
 	        int hash = (myhash( data ) % tamanotabla);
@@ -103,6 +133,7 @@ public class Encadenamiento<T> {
 	            }            
 	        }
 	    }
+
 	
 
 	   

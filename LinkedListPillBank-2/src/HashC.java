@@ -81,6 +81,13 @@
                 return -1; 
     }
 	
+	public int mostrardato(int key) {
+		
+		return key;
+		
+		
+	}
+	
 	public int remove(int key,E reg) {
         int posicion=functionHash(key);
         do {

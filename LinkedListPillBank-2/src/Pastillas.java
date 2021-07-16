@@ -24,7 +24,12 @@ public class Pastillas {
 	public String getNombre() {
 		return nombre;
 	}
-
+	public void getAll() {
+		System.out.println(codigo);
+		System.out.println(nombre);
+		System.out.println(precio);
+		System.out.println(cantidad);
+	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;

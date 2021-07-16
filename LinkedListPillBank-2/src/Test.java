@@ -11,14 +11,14 @@ public class Test {
     	ListLinked<Pastillas> Pastillas = new ListLinked<>();
   
     	
-		 Pastillas a = new Pastillas(45672956,"Paracetamol","S./3.20",10);
+		
     	 Pastillas b = new Pastillas(34357891,"Omeprazol","S./2.20",15);
     	 Pastillas c = new Pastillas(65431183,"Ramipril","S./5.20",20);
     	 Pastillas d = new Pastillas(88547235,"Aspirina","S./7.20",8);
     	 Pastillas e = new Pastillas(99124365,"Amlopidina","S./4.20",13);
  
  
-    	 Pastillas.insertFirst(a);
+    	 //Pastillas.insertFirst(a);
     	 Pastillas.insertFirst(b);
     	 Pastillas.insertFirst(c);
     	 Pastillas.insertFirst(d);
@@ -38,6 +38,13 @@ public class Test {
         System.out.println("///////////////////////////BIENVENIDO/////////////////////////////");
         System.out.println("Sistema de pastillas");
         System.out.println("Ingresa tamano de tu lista");
+        Integer codigo;
+        String nombre;
+        String precio;
+        Integer cantidad;
+        Scanner entrada = new Scanner(System.in);
+        Scanner entrada2 = new Scanner(System.in);
+ 
         Encadenamiento ht = new Encadenamiento(scan.nextInt() );;
         char ch;
 		int p = 0;
@@ -48,16 +55,36 @@ public class Test {
             System.out.println("2. Eliminar pastilla ");
             System.out.println("3. Buscar pastilla");            
             System.out.println("4. Eliminar toda la lista de pastillas");
-            System.out.println("5. Tamano");
+            System.out.println("5. Tamano lista y Mostrar datos");
+
             int choice = scan.nextInt();           
             switch (choice)
             {
             case 1 : 
                 System.out.println("Ingresa codigo, nombre, precio y cantidad");
+                //El data de encadenamiento sera un objeto pastilla
+                int i;
+                for( i=0;i<=ht.getSize();i+=1)
+                {
+                    System.out.println(" ");
+                }
                 
-                ht.insert(scan.next(), scan.nextInt() ); 
+                System.out.println("Ingresa Codigo");
+                codigo = entrada.nextInt();
                 
+                System.out.println("Ingresa Nombre");
+                nombre = entrada2.nextLine();
+                
+                System.out.println("Ingresa Precio");
+                precio = entrada2.nextLine();
+                
+                System.out.println("Ingresa Cantidad");
+                cantidad = entrada.nextInt();
+                
+                Pastillas a = new Pastillas(codigo,nombre,precio,cantidad);
+				ht.insert2(a, i );                
                 ht.printHashTable();
+                //a.
                 break;                          
             case 2 :                 
                 System.out.println("Ingresa el dato");
@@ -73,6 +100,8 @@ public class Test {
                 break;
             case 5 : 
                 System.out.println("Tamano = "+ ht.getSize() );
+                //Mostrar dato de algun numero
+                //ht.get(1);
                 break; 
                 
             default : 
