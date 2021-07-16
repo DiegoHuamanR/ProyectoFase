@@ -3,6 +3,7 @@
 public class Node<T> {
 	private T data;//info
 	private Node<T> next;//puntero
+	public int value;
 	
 	public Node(T data ) {
 		this (data,null);	
@@ -10,6 +11,17 @@ public class Node<T> {
 	public Node(T data, Node<T> next) {
 		this.data=data;
 		this.next= next;
+	}
+	public Node(T data, Node<T> next, int value) {
+		this.data=data;
+		this.value = value;
+		this.next= next;
+	}
+	   public Node (T data, int value) 
+	{
+	    	this.data=data;
+	    	this.value = value;
+	        this.next = null;
 	}
 	
     public Node<T> head = null;
