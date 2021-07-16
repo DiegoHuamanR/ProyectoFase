@@ -1,4 +1,4 @@
-package vistas;
+
 
 public class Vendedor {
 	String Nombre;
