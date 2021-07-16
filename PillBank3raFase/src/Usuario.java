@@ -2,9 +2,8 @@
 public class Usuario<E> implements Comparable<Usuario<E>> {
 	protected int key,DNI,celular,edad;
 	protected E nombre,apellido,email,contraseña,direccion;
-	public Usuario(int key,int DNI,E nombre,E apellido,E email,E contraseña,int celular,int edad,E direccion) {
+	public Usuario(int key,E nombre,E apellido,E email,E contraseña,int celular,int edad,E direccion) {
 		this.key= key;
-		this.DNI= DNI;
 		this.celular= celular;
 		this.edad=edad;
 		this.nombre=nombre;
@@ -27,7 +26,7 @@ public class Usuario<E> implements Comparable<Usuario<E>> {
 	    return this.key;
 	}
 	public String toString() {
-		return this.key+":"+this.DNI+":"+this.nombre.toString()+":"+this.apellido.toString()
+		return this.key+":"+this.nombre.toString()+":"+this.apellido.toString()
 		+":"+this.direccion.toString()+":"+this.email.toString()+":"+this.celular+":"
 		+this.edad+":"+this.contraseña.toString();
 	} 

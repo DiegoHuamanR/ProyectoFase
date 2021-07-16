@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class HashC<E extends Comparable<E>> {
+public class HashUsuario<E extends Comparable<E>> {
 
 	public class Element{
 		int mark;
@@ -17,7 +17,7 @@ public class HashC<E extends Comparable<E>> {
 	protected int m;
 	public int a=0;
 
-	public HashC(int n) {
+	public HashUsuario(int n) {
 		this.m=n;
 		this.table = new ArrayList<Element>(m);
 		for(int i=0;i<m;i++) {
@@ -39,7 +39,7 @@ public class HashC<E extends Comparable<E>> {
         }while (dressHash != posInit);
         return -1;
     }
-    public void insert(int key,int key2,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
+    public void insert(int key,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
 		a=1;
         int dressHash=functionHash(key);
         dressHash=linearProbing(dressHash,key);
@@ -52,13 +52,13 @@ public class HashC<E extends Comparable<E>> {
             return;
         }
         else {
-            Element aux =new Element(1,new Usuario<E>(key,key2,nom,apell,direcc,email,cel,edad,contra));
+            Element aux =new Element(1,new Usuario<E>(key,nom,apell,direcc,email,cel,edad,contra));
             table.set(dressHash,aux);
         }
 
     }
     
-    public int remove(int key,int key2,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
+    public int remove(int key,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
         int posicion=functionHash(key);
         do {
         if (table.get(posicion).mark == 0) {
@@ -66,7 +66,7 @@ public class HashC<E extends Comparable<E>> {
             }
         if (table.get(posicion).mark == 1 && table.get(posicion).reg.getKey() == key) {
             System.out.println("Se encontro el dato "+table.get(posicion).reg);
-            Element aux =new Element(0,new Usuario<E>(key,key2,nom,apell,direcc,email,cel,edad,contra));
+            Element aux =new Element(0,new Usuario<E>(key,nom,apell,direcc,email,cel,edad,contra));
             table.set(posicion,aux);
             }
         posicion=(posicion + 1 )% m;
@@ -109,7 +109,7 @@ public class HashC<E extends Comparable<E>> {
     	}
     }
     public int metodopliegue(int key){
-      a=0;
+      a=2;
       int digitos =1; 
       int longarreglo =300; 
       int hashVal =0; 
@@ -124,7 +124,7 @@ public class HashC<E extends Comparable<E>> {
       int dressHash=functionHash(hashVal);
       return dressHash;
     }
-    public void insertplegable(int key,int key2,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
+    public void insertplegable(int key,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
     	int dressHash=metodopliegue(key);
         dressHash=linearProbing(dressHash,key);
         if (dressHash==-1) {
@@ -136,7 +136,7 @@ public class HashC<E extends Comparable<E>> {
             return;
         }
         else {
-            Element aux =new Element(1,new Usuario<E>(key,key2,nom,apell,direcc,email,cel,edad,contra));
+            Element aux =new Element(1,new Usuario<E>(key,nom,apell,direcc,email,cel,edad,contra));
             table.set(dressHash,aux);
         }
     }
@@ -176,7 +176,7 @@ public class HashC<E extends Comparable<E>> {
         }while (dressHash != posInit); 
         return -1;
     }
-    public void insertcuadratic(int key,int key2,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
+    public void insertcuadratic(int key,E nom,E apell,E direcc,E email,int cel,int edad,E contra) {
     	a=3;
     	int dressHash=functionHash(key);
         dressHash=cuadraticProbing(dressHash,key);
@@ -189,7 +189,7 @@ public class HashC<E extends Comparable<E>> {
             return;
         }
         else {
-            Element aux =new Element(1,new Usuario<E>(key,key2,nom,apell,direcc,email,cel,edad,contra));
+            Element aux =new Element(1,new Usuario<E>(key,nom,apell,direcc,email,cel,edad,contra));
             table.set(dressHash,aux);
         }
     }
