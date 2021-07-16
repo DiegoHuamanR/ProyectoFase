@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class HashC<E extends Comparable<E>> {
+
+public class HashCV<E extends Comparable<E>> {
 	
 	protected class Element{
 		int mark;
@@ -14,7 +15,7 @@ public class HashC<E extends Comparable<E>> {
 	protected ArrayList<Element> table;
 	protected int m;
 	
-	public HashC(int n) {
+	public HashCV(int n) {
 		this.m=n;  
 		this.table=new ArrayList<Element>(m);
 		for(int i=0; i<m;i++) {
