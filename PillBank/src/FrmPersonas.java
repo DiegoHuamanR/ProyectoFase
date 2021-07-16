@@ -49,7 +49,7 @@ public class FrmPersonas extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public FrmPersonas() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DIEGO\\Downloads\\pastillas.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DIEGO\\Downloads\\Src lIbni\\pastillas.png"));
 		setBackground(Color.DARK_GRAY);
 		setTitle("Registro de Vendedor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

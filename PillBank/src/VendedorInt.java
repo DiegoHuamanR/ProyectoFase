@@ -48,7 +48,7 @@ public class VendedorInt extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public VendedorInt() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DIEGO\\Downloads\\pastillas.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DIEGO\\Downloads\\Src lIbni\\pastillas.png"));
 		setTitle("Interfaz Vendedor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 603, 460);
@@ -66,6 +66,7 @@ public class VendedorInt extends JFrame implements ActionListener {
 		btnIntRegistro.addActionListener(this);
 		btnIntRegistro.setBounds(444, 155, 89, 23);
 		contentPane.add(btnIntRegistro);
+		
 		
 		btnPastillas = new JButton("Pastillas");
 		btnPastillas.addActionListener(this);

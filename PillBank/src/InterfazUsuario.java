@@ -11,6 +11,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -75,7 +77,7 @@ public class InterfazUsuario extends JFrame {
 		        Dialogo mensajeVent = new Dialogo();
 
 		        while (opcionEligeUsuario != 6 ) {
-
+		        		lblFondo.setIcon(new ImageIcon("C:\\Users\\DIEGO\\Documents\\Fondos Usuarios\\user-male-3.png"));
 						opcionEligeUsuario = opcionesUsuario.obtenerOpcionMenu();
 
 		            if (opcionEligeUsuario == 1) {

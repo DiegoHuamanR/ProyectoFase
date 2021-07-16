@@ -38,7 +38,7 @@ public class Menuprincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public Menuprincipal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DIEGO\\Downloads\\Src lIbni\\pastillas.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DIEGO\\Downloads\\Src lIbni\\pastillas.png"));
 		setTitle("PILLBANK");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 599, 370);
