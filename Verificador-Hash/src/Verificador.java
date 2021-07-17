@@ -89,7 +89,7 @@ public class Verificador<E extends Comparable<E>> {
 		}while (dressHash != posInit);
 		return -1;
 	}
-	public void insert(int key, E reg, E direc) {
+	public void insert(int key, E pastilla, E horas, E precio) {
 		int dressHash = functionPliege(key);
 		dressHash = linearProbing(dressHash, key, 1);
 		if (dressHash == -1) {
@@ -101,14 +101,15 @@ public class Verificador<E extends Comparable<E>> {
 			return;
 		}
 		else {
-			Element aux = new Element(1,new CodeReceta<E>(key, reg, direc));
+			Element aux = new Element(1,new CodeReceta<E>(key, pastilla, horas, precio));
 			table.set(dressHash, aux);
 		}
 	}
 	
 	public int search(int key) {
-		E dato = null; //Se crea una variable tipo E para retornar
+		E pastilla = null; //Se crea una variable tipo E para retornar
 		E horario = null;
+		E precio = null;
 		int x = 0;
 		int dressHash = functionPliege(key); //Se busca la posición en la tabla con la functionHash
 		dressHash = linearProbing(dressHash, key, -1); //Se envía el dressHash, la key y -1 a linearProbing para saber si el dato exite en la tabla
@@ -117,13 +118,14 @@ public class Verificador<E extends Comparable<E>> {
 		}
 		else {
 			System.out.println("Buscando código: "+ key);
-			dato = table.get(dressHash).reg.getPastilla();
+			pastilla = table.get(dressHash).reg.getPastilla();
 			horario = table.get(dressHash).reg.getHoras();//Se obtiene el value del registro
+			precio = table.get(dressHash).reg.getPrecio();
 			x = 1;
 		}
 		System.out.println("\tSU RECETA ES\t");
-		System.out.println("| Pastilla |"+"   "+"| Horario |");
-		System.out.println(dato+" "+horario); //Se retorna el value del registro
+		System.out.println("| Pastilla |"+"   "+"| Horario |"+"  "+"| Precio |");
+		System.out.println(pastilla+" "+horario+"   "+precio); //Se retorna el value del registro
 		return x;
 	}
 	
@@ -151,9 +153,9 @@ public class Verificador<E extends Comparable<E>> {
 			conta++;
 		
 		if(conte<conta) {
-			System.out.println("El primo cercano a "+ num +" es: "+ menor);
+			//System.out.println("El primo cercano a "+ num +" es: "+ menor);
 			return menor;}
-		System.out.println("El primo cercano a "+ num +" es: "+ mayor);
+		//System.out.println("El primo cercano a "+ num +" es: "+ mayor);
 		return mayor;
 		
 	}
@@ -191,14 +193,20 @@ public class Verificador<E extends Comparable<E>> {
 		return prim;
 	}
 	
-	public void insertReceta(Verificador<String> r) { //Las pastillas estarán predefinidas en este método.
+	public void insertR(Verificador<String> r) {
+		Verificador<String> s = new Verificador<String>(50);
+		s = r;
+		insertReceta(s);
+	}
+	
+	private void insertReceta(Verificador<String> r) { //Las pastillas estarán predefinidas en este método.
 		Verificador<String> h = new Verificador<String>(50);
 		h = r;
-		h.insert(5050,"Aspirina ->", " Cada 12 Horas.");
-		h.insert(5134,"Paracetamol ->", "Cada 6 Horas.");
-		h.insert(9746,"Omeprazol ->", "Después de cada almuerzo.");
-		h.insert(5372,"Amoxicilina ->", "Cada 24 horas.");
-		h.insert(3731,"Ampicilina ->", "Cada 24 horas.");
+		h.insert(5050,"Aspirina ->", " Cada 12 Horas.", "S/7.00");
+		h.insert(5134,"Paracetamol ->", "Cada 6 Horas.", "S/5.00");
+		h.insert(9746,"Omeprazol ->", "Después de cada almuerzo.", "S/8.00");
+		h.insert(5372,"Amoxicilina ->", "Cada 24 horas.", "S/3.00");
+		h.insert(3731,"Ampicilina ->", "Cada 24 horas.", "S/5.00");
 	}
 	
 	public String toString() {
