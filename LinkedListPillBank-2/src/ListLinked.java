@@ -1,16 +1,16 @@
-public class ListLinked<T>implements TDAList<T>  {
+public class ListLinked<T>  {
 
     public Node<T> first;
     private Node<T> sorted;
 
     int count;
-    
+
     public ListLinked() {
         this.first =null;//head
         this.count = 0;//contador
 
     }
-    
+
     public Node<T> getFirst() {
         return first;
     }
@@ -22,17 +22,17 @@ public class ListLinked<T>implements TDAList<T>  {
     public boolean isEmptyList() {
         return this.first == null;
     }
-    
+
     public int lenght() {
         return this.count;
     }
-    
+
     public void destroyList() {
         while(this.first != null)
             this.first = this.first.getNext();
         this.count = 0;
     }
-        
+
     void sortedInsert(Node<T> newnode) 
     {
 
@@ -63,21 +63,43 @@ public class ListLinked<T>implements TDAList<T>  {
     }
 
     public String toString() {
-        String str="";
+        String r="";
         Node<T> aux = this.first;
-        for (int i=0; aux != null; aux = aux.getNext(), i++)
-            str += "["+i+"]"+"\t"+ aux.getData()+"\n";
-        return str;
+        while(aux != null) {
+            r=r+aux.getInfo();
+            aux=aux.getNext();
+        }
+        return r;
     }
-    
-    
-    
+
+
+
     public void insertFirst(T x)
     {
         Node<T> new_node = new Node<T>(x);
         new_node.setNext(this.first);
         this.first = new_node;
         this.count++;
+    }
+
+    
+    public void remove(T key)
+    {
+        Node<T> temp = this.first, prev = null;
+ 
+        if (temp != null && temp.getData().equals(key)) {
+            this.first = temp.getNext(); // Changed head
+            return;
+        }
+ 
+        while (temp != null && temp.getData().equals(key)) {
+            prev = temp;
+            temp = temp.getNext();
+        }
+ 
+        if (temp == null)
+            return;
+        prev.setNext(temp.getNext());
     }
 
 
@@ -93,20 +115,30 @@ public class ListLinked<T>implements TDAList<T>  {
     }
 
     public boolean search(T x) {
-        
+
         Node<T> current = first;    //Iniciar actual
         while (current != null)
         {
             if (current.getData() == x)
-                return true;    
+                return true;
             current = current.getNext();
         }
-        return false;    
-    }    
-    
-        
-        
-        
+        return false;
+    }
+
+    public T searchData(T data) {
+        Node<T> nodo =this.first;
+        while (nodo!= null && !nodo.getData().equals(data)) {
+            nodo=nodo.getNext();
+        }
+        if (nodo!=null)
+            return nodo.getData();
+        return null;
+
+    }
+
+
+
         public Integer ocurrencias(T x)
         {
             Node<T> current = this.first;
@@ -120,33 +152,9 @@ public class ListLinked<T>implements TDAList<T>  {
                 current = current.getNext();
             }
             return count;
-    
-        
-        
+
+
+
     }
-
-        @Override
-        public int search2(T x) {
-            // TODO Auto-generated method stub
-            return 0;
-        }
-
-        @Override
-        public void remove(T x) {
-            Node<T> aux=this.first;
-            int pos;
-            int posi;
-            int contador=0;
-            pos=search2(x);
-            posi=pos-1;
-            while(contador<posi) {
-                aux=aux.getNext();
-                contador++;
-            }
-            aux.setNext(aux.getNext().getNext());
-            this.count--;
-
-        }
-
 
 }

@@ -1,13 +1,13 @@
 public class Encadenamiento<T> {
 	   private int tamanotabla;
-	   protected Node[] HashTable; 
+	   protected NodeH[] HashTable; 
 	   protected int tamano;
 	 
 	   public Encadenamiento(int tt)
 	   {
 	      tamano = 0;
 	      tamanotabla=tt;
-	      HashTable = new  Node[tamanotabla];
+	      HashTable = new  NodeH[tamanotabla];
 	      for (int i = 0; i < tamanotabla; i++)
 	    	  HashTable[i] = null;
 	    } 
@@ -38,7 +38,7 @@ public class Encadenamiento<T> {
 	            return -1;
 	        else 
 	        {
-	            Node entry = HashTable[hash];
+	            NodeH entry = HashTable[hash];
 	            while (entry != null && !entry.getData().equals(data))
 	                entry = entry.getNext();	
 	            if (entry == null)
@@ -67,16 +67,16 @@ public class Encadenamiento<T> {
 	    {
 	        int hash = (myhash( data ) % tamanotabla);
 	        if (HashTable[hash] == null)
-	            HashTable[hash] = new Node(data, value);
+	            HashTable[hash] = new NodeH(data, value);
 	        else 
 	        {
-	            Node entry = HashTable[hash];
+	            NodeH entry = HashTable[hash];
 	            while (entry.getNext() != null && !entry.getData().equals(data))
 	            	entry = entry.getNext();
 	            if (entry.getData().equals(data))
 	                entry.value = value;
 	            else
-	            	entry.setNext(new Node(data, value));
+	            	entry.setNext(new NodeH(data, value));
 	        }
 	        tamano++;
 	    }
@@ -86,16 +86,16 @@ public class Encadenamiento<T> {
 	    {
 	        int hash = (myhash2( data ) % tamanotabla);
 	        if (HashTable[hash] == null)
-	            HashTable[hash] = new Node(data, value);
+	            HashTable[hash] = new NodeH(data, value);
 	        else 
 	        {
-	            Node entry = HashTable[hash];
+	            NodeH entry = HashTable[hash];
 	            while (entry.getNext() != null && !entry.getData().equals(data))
 	            	entry = entry.getNext();
 	            if (entry.getData().equals(data))
 	                entry.value = value;
 	            else
-	            	entry.setNext(new Node(data, value));
+	            	entry.setNext(new NodeH(data, value));
 	        }
 	        tamano++;
 	    }
@@ -116,8 +116,8 @@ public class Encadenamiento<T> {
 	        int hash = (myhash( data ) % tamanotabla);
 	        if (HashTable[hash] != null) 
 	        {
-	            Node prevEntry = null;
-	            Node entry = HashTable[hash];
+	            NodeH prevEntry = null;
+	            NodeH entry = HashTable[hash];
 	            while (entry.getNext() != null && !entry.getData().equals(data)) 
 	            {
 	                prevEntry = entry;
@@ -139,7 +139,7 @@ public class Encadenamiento<T> {
 	        for (int i = 0; i < tamanotabla; i++)
 	        {
 	            System.out.print("\nEspacio "+ (i + 1) +" : ");
-	            Node entry = HashTable[i];
+	            NodeH entry = HashTable[i];
 	            while (entry != null)
 	            {
 	                System.out.print(entry.value +" ");
